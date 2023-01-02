@@ -44,18 +44,14 @@ window.addEventListener('scroll', function() {
 
 
 window.addEventListener('load', function() {
-    var pageContent = document.querySelector('.page-content .container');
-    var pagePos = pageContent.getBoundingClientRect();
+  var pageContent = document.querySelector('.page-content .container');
+  var pagePos = pageContent.getBoundingClientRect();
   var pageContentDivClass = document.querySelector('.page-content');
   
 //   ----------------------------------------------------------------
   var viewportWidth = window.innerWidth;
   var viewportHeight = window.innerHeight;
- 
-  console.log('viewport height',viewportHeight)
-  console.log('viewport width',viewportWidth)
 
-  console.log('viewport width - content width',(viewportWidth- pagePos.width)/2);
 // ------------------------------------------------
 
     var topAd = document.getElementsByClassName('advertising-container-top');

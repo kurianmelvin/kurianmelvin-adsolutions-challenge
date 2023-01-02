@@ -43,13 +43,6 @@ window.addEventListener('scroll', function() {
 */
 
 
-
-// var viewportWidth = window.innerWidth;
-// var viewportHeight = window.innerHeight;
-// console.log('viewport height',viewportHeight)
-// console.log('viewport width',viewportWidth)
-
-
 window.addEventListener('load', function() {
     var pageContent = document.querySelector('.page-content .container');
     var pagePos = pageContent.getBoundingClientRect();
@@ -58,16 +51,6 @@ window.addEventListener('load', function() {
 //   ----------------------------------------------------------------
   var viewportWidth = window.innerWidth;
   var viewportHeight = window.innerHeight;
-
-//   var viewportWidth = document.documentElement.clientWidth;
-//   var viewportHeight = document.documentElement.clientHeight;
-  
-  // Set the dimensions of the div element
-//   var div = document.getElementById('myDiv');
-//   div.style.width = viewportWidth + 'px';
-//   div.style.height = viewportHeight + 'px';
-
-
  
   console.log('viewport height',viewportHeight)
   console.log('viewport width',viewportWidth)
@@ -80,27 +63,20 @@ window.addEventListener('load', function() {
     
   
 //  begining of the left side ad placement 
-    
-    
     var leftAd = document.createElement('div');
     leftAd.className = 'advertising-container-left';
     pageContentDivClass.insertAdjacentElement('afterbegin', leftAd);
     
     // styling the leftAd element
-
     leftAd.style.backgroundColor = 'blue';
     leftAd.style.position = 'absolute';
-
 
     leftAd.style.left = 0.5+'px';
     leftAd.style.width = (pagePos.left)-0.5+ "px";
     leftAd.style.height = pagePos.height+ "px";
 
 
-
-
 // begining of the right side ad placement 
-
 
 var rightAd = document.createElement('div');
     rightAd.className = 'advertising-container-right';
@@ -118,18 +94,26 @@ var rightAd = document.createElement('div');
 
 // ----------------------------------------------------------------
 
+/**
+ * Resize event listener for the left and right ad containers.
+ *
+ * When the window is resized, the event listener executes the function that follows. The function
+ * gets the bounding rectangle of the element with the class 'page-content .container' and uses it
+ * to set the size and position of the leftAd and rightAd elements.
+ *
+ */
+
+
 window.addEventListener('resize', function() {
 
     var pageContentResize = document.querySelector('.page-content .container');
     var pagePosResize = pageContentResize.getBoundingClientRect();
-    // console.log('Viewport size: ' + window.innerWidth + ' x ' + window.innerHeight);
-    // console.log('pagePosResize : ' + pagePosResize.left );
 
     leftAd.style.left = 0.5+'px';
     leftAd.style.width = (pagePosResize.left)-0.5+ "px";
     leftAd.style.height = pagePosResize.height+ "px";
 
-
+// ----------------------------------------------------------------
     rightAd.style.left = pagePosResize.right+'px';
     rightAd.style.width = ((viewportWidth- pagePosResize.width)/2)+'px'
     rightAd.style.height =  pagePosResize.height+ "px";
@@ -141,16 +125,6 @@ window.addEventListener('resize', function() {
   
   
 
-
-
-// topAd[0].innerHTML = '<div style="background-color: green; height: 277px; width: 1024px; ">Top Ad</div>';
-// console.log('logging the height');
+// for images
 // topAd.style.backgroundImage = 'url("https://i.picsum.photos/id/70/990/230.jpg?hmac=ausmtAtflDIfrHlBcP4ZalXCNT1ulcXXiEFzYA5ayuY")';
-
 // topAd.style.backgroundRepeat = 'no-repeat';
-
-// topAd.style.zIndex = '1000';
-
-
-
-

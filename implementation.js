@@ -56,11 +56,11 @@ window.addEventListener('load', function() {
   var pageContentDivClass = document.querySelector('.page-content');
   
 //   ----------------------------------------------------------------
-//   var viewportWidth = window.innerWidth;
-//   var viewportHeight = window.innerHeight;
+  var viewportWidth = window.innerWidth;
+  var viewportHeight = window.innerHeight;
 
-  var viewportWidth = document.documentElement.clientWidth;
-  var viewportHeight = document.documentElement.clientHeight;
+//   var viewportWidth = document.documentElement.clientWidth;
+//   var viewportHeight = document.documentElement.clientHeight;
   
   // Set the dimensions of the div element
 //   var div = document.getElementById('myDiv');
@@ -93,12 +93,7 @@ window.addEventListener('load', function() {
 
 
     leftAd.style.left = 0.5+'px';
-    // / leftAd.style.right = '320.5px';
-    // leftAd.style.right = ((viewportWidth- pagePos.width)/2)+'px'
-
-    //
-    leftAd.style.width = pagePos.left+ "px";
-    // leftAd.style.width = ((viewportWidth- pagePos.width)/2)+'px'
+    leftAd.style.width = (pagePos.left)-0.5+ "px";
     leftAd.style.height = pagePos.height+ "px";
 
 
@@ -115,39 +110,36 @@ var rightAd = document.createElement('div');
     rightAd.style.backgroundColor = 'purple';
     rightAd.style.position = 'absolute';
 
-
     rightAd.style.left = pagePos.right+'px';
-    
     rightAd.style.width = ((viewportWidth- pagePos.width)/2)+'px'
-    
     rightAd.style.height =  pagePos.height+ "px";
 
 
 
 // ----------------------------------------------------------------
 
-    // window.addEventListener('resize', function() {
-    
-    //     leftAd.style.width ="20%-1%";
-    // // leftAd.style.height = pagePos.height+ "px";
-    //   });
+window.addEventListener('resize', function() {
+
+    var pageContentResize = document.querySelector('.page-content .container');
+    var pagePosResize = pageContentResize.getBoundingClientRect();
+    // console.log('Viewport size: ' + window.innerWidth + ' x ' + window.innerHeight);
+    // console.log('pagePosResize : ' + pagePosResize.left );
+
+    leftAd.style.left = 0.5+'px';
+    leftAd.style.width = (pagePosResize.left)-0.5+ "px";
+    leftAd.style.height = pagePosResize.height+ "px";
+
+
+    rightAd.style.left = pagePosResize.right+'px';
+    rightAd.style.width = ((viewportWidth- pagePosResize.width)/2)+'px'
+    rightAd.style.height =  pagePosResize.height+ "px";
 
   });
+
+});
   
-
-
-
-
-
   
-// leftAd.style.left = 1+'px';
-    // leftAd.style.right = ((viewportWidth- pagePos.width)/2)+'px'
-
-
-
-
-
-
+  
 
 
 
